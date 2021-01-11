@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+}
+
+body{
+  background-color: #3b5998;
+}
+
+.sign-in{
+  width: 450px;
+  margin: 150px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.sign-in h2,.sign-up h2{
+  text-align: center;
+  color: #3b5998;
+  font-size: 32px;
+}
+
+.sign-up{
+  width: 650px;
+  margin: 130px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+form{
+  margin: 30px 0;
+}
+
+form input{
+  outline: none;
+  padding-left: 25px;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3b5998;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 15px;
+}
+
+.form-group{
+  position: relative;
+}
+
+.form-group label{
+  position: absolute;
+  top: 0;
+  left: 25px;
+  top: 8px;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+
+.icon span{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label{
+  top: -10px;
+  left: 15px;
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #3b5998;
+  font-weight: bold;
+}
+
+.btn{
+  margin-top: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 20px;
+  background-color: #3b5998;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+form h3{
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+form > p{
+  cursor: pointer;
+  font-weight: 600;
+  display: inline;
+}
+
+form .error{
+  color: red;
+  font-size: 14px;
+  display: block;
+}
+
+form .success{
+  color: green;
+  font-size: 14px;
+  display: block;
+}
+
+.home{
+  width: 60%;
+  margin: 100px auto;
+}
+
+.home h2{
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ec407a;
+}
+
+.home ul{
+  list-style: circle;
+}
+
+.home ul li{
+  font-size: 18px;
+  line-height: 32px;
+  color: #fff;
+}

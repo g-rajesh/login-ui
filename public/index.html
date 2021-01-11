@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" type="text/css">
+  <link rel="stylesheet" href="style.css">
+  <title>Account | Sign in</title>
+</head>
+<body>
+  <div class="sign-in">
+    <h2>Sign In</h2>
+    <form class="signIn">
+      <div class="form-group">
+        <input type="email" id="email" onfocus="focussed(id)" onfocusout="notFocussed(id)" autocomplete="off" required/>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-group icon">
+        <input type="password" id="password" onfocus="focussed(id)" onfocusout="notFocussed(id)" autocomplete="off" style="margin-bottom: 10px;" required/>
+        <label for="password">Password</label>
+        <span onclick="icon()"><i class="fas fa-eye-slash"></i></span>
+      </div>
+      <span></span>
+      <p onclick="forgot()">Forgot password?</p>
+      <button class="btn">Sign In</button>
+      <h3>New player? <a href="sign_up.html">Create your game!</a></h3>
+    </form>
+  </div>
+
+  <script>
+
+    const icon = () => {
+      const spanIcon = document.querySelector('.icon > span');
+      if(spanIcon.innerHTML === "<i class=\"fas fa-eye-slash\"></i>"){
+        spanIcon.innerHTML = "<i class=\"fas fa-eye\"></i>";
+        document.querySelector('#password').setAttribute('type','text');
+      }
+      else if(spanIcon.innerHTML === "<i class=\"fas fa-eye\"></i>"){
+        spanIcon.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
+        document.querySelector('#password').setAttribute('type','password');
+      }
+    }
+
+    const focussed = (id) => {
+      document.querySelector(`#${id}`).style.border = "3px solid #3b5998";
+    }
+
+    const notFocussed = (id) => {
+      if(document.querySelector(`#${id}`).value === ''){
+        document.querySelector(`#${id}`).style.border = "2px solid #000";
+      }
+    }
+
+    document.querySelector('.signIn').addEventListener('submit',(e)=>{
+
+      e.preventDefault();
+
+      const email = document.querySelector('#email').value;
+      const pass = document.querySelector('#password').value;
+
+      const users = JSON.parse(localStorage.getItem('users'));
+
+      for(let i=0; i<users.length; i++){
+        if(users[i].Email === email && users[i].Password === pass){
+          window.location.href = "home.html";
+        }
+      }
+      document.querySelector('form > span').className = "error";
+      document.querySelector('form > span').innerHTML = "Email and Password doesn't match";
+
+      setTimeout(()=>{
+        document.querySelector('form > span').classList.remove('error');
+        document.querySelector('form > span').innerHTML = "";
+      },3000);
+
+    });
+
+    const forgot = (e) => {
+      alert("Please don't expect that much, this is just a simple login/logout UI!");
+    }
+
+  </script>
+</body>
+</html>
